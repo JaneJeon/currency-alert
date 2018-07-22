@@ -1,0 +1,14 @@
+{
+  "name": "currency-alert",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "repository": "https://github.com/JaneJeon/currency-alert.git",
+  "author": "Jane Jeon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.279.1",
+    "dotenv": "^6.0.0",
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
