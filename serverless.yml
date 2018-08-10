@@ -18,3 +18,15 @@ functions:
     events:
       - schedule: rate(12 hours)
     reservedConcurrency: 1
+
+resources:
+  Resources:
+    MemoryUsedMetricFilter:
+      Type: AWS::Logs::MetricFilter
+      Properties:
+        LogGroupName: "/aws/lambda/currency-alert-${self:provider.stage}-check"
+        FilterPattern: '[report_prefix="REPORT", ..., max_memory_used_prefix="Used:", max_memory_used,max_memory_used_unit="MB"]'
+        MetricTransformations:
+        - MetricValue: "$max_memory_used"
+          MetricNamespace: Lambda
+          MetricName: Memory
