@@ -12,6 +12,9 @@ provider:
       Action:
         - ses:SendEmail
 
+package:
+  individually: true
+
 functions:
   check:
     handler: handler.run
@@ -30,3 +33,11 @@ resources:
         - MetricValue: "$max_memory_used"
           MetricNamespace: Lambda
           MetricName: Memory
+
+custom:
+  prune:
+    automatic: true
+    number: 3
+
+plugins:
+  - serverless-prune-plugin
