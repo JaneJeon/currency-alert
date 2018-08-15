@@ -13,6 +13,8 @@ provider:
         - ses:SendEmail
 
 package:
+  include:
+    - .env
   individually: true
 
 functions:
@@ -41,3 +43,4 @@ custom:
 
 plugins:
   - serverless-prune-plugin
+  - serverless-plugin-optimize
